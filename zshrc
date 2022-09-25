@@ -5,9 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 myConfigPath="$HOME/myConfig"
+myCache=${myConfigPath}/cache
 
 # {{{ zinit config begin
-ZINIT_HOME="${XDG_DATA_HOME:-${myConfigPath}}/cache/zinit/zinit.git"
+ZINIT_HOME="${XDG_DATA_HOME:-${myCache}}/zinit/zinit.git"
 if [[ ! -r $ZINIT_HOME ]]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
   git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -34,7 +35,7 @@ zi ice svn
 zi snippet OMZP::extract
 
 # 不分大小写补全
-compinitCache=${myConfigPath}/cache/zsh/zcompdump
+compinitCache=${myCache}/zsh/zcompdump
 if [[ ! -r $compinitCache ]]; then
   mkdir -p $compinitCache
 fi
@@ -61,13 +62,15 @@ if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
   # alzy loading for zsh-nvm,so not use zi ice wait
   export NVM_LAZY_LOAD=true
   zi load lukechilds/zsh-nvm
-  #nvm use 18 > /dev/null
+  [[ -f ${myCache}/forNvm.zsh ]] || echo "nvm use 18 > /dev/null" > ${myCache}/forNvm.zsh
+  zi ice wait'!1' lucid
+  zi snippet ${myCache}/forNvm.zsh
 }
 # 补全快捷键重设
 # bindkey ',' autosuggest-accept
 
 #zi self-update # zinit 升级
-#zi update #升级其他插件
+#zi update #升级其他插件,网络不好的时候慎用
 #zi delete --clean #清理没有加载的插件
 #zi cd 
 
