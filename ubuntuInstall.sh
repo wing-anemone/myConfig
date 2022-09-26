@@ -30,6 +30,9 @@ if [[ $Flag -ne "NoFirst" ]]; then
   cmake --build Release && cd
   # accelerate for telescope
   git clone --depth=1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  # Using Ubuntu, install nodejs 18.9.1
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  sudo apt-get install -y nodejs
 fi 
 fc-cache -fv $HOME/.fonts
 sudo apt install $HOME/nvim-linux64-0.7.2.deb
