@@ -60,11 +60,11 @@ zi load paulirish/git-open
 # 在macos中不使用
 if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
   # alzy loading for zsh-nvm,so not use zi ice wait
-  export NVM_LAZY_LOAD=true
-  zi load lukechilds/zsh-nvm
-  [[ -f ${myCache}/forNvm.zsh ]] || echo "nvm use 18 > /dev/null" > ${myCache}/forNvm.zsh
-  zi ice wait'!1' lucid
-  zi snippet ${myCache}/forNvm.zsh
+  #export NVM_LAZY_LOAD=true
+  #zi load lukechilds/zsh-nvm
+  #[[ -f ${myCache}/forNvm.zsh ]] || echo "nvm use 18 > /dev/null" > ${myCache}/forNvm.zsh
+  #zi ice wait'!1' lucid
+  #zi snippet ${myCache}/forNvm.zsh
 }
 # 补全快捷键重设
 # bindkey ',' autosuggest-accept
@@ -78,6 +78,7 @@ if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
 
 [[ ! -f "${myConfigPath}/p10k.zsh" ]] || source ${myConfigPath}/p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.myZsh ] && source ~/.myZsh
 
 alias vi="nvim"
 alias setproxy='export http_proxy=http://127.0.0.1:7890; export https_proxy=$http_proxy;' # 设置终端代理
