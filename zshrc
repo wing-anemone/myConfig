@@ -1,18 +1,22 @@
+# zmodload zsh/zprof # tset speed of zsh load, use "zprof" in terminal
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# if in macos
+[[ $(uname -a | awk '{print $1}') == "Darwin" ]] && Sys="mac"
+
 myConfigPath="$HOME/myConfig"
 myCache=${myConfigPath}/cache
 
-# {{{ zinit config begin
+# { zinit config begin
 ZINIT_HOME="${XDG_DATA_HOME:-${myCache}}/zinit/zinit.git"
-if [[ ! -r $ZINIT_HOME ]]; then
+if [[ ! -r $ZINIT_HOME ]] {
   mkdir -p "$(dirname $ZINIT_HOME)"
   git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
+}
 source "${ZINIT_HOME}/zinit.zsh"
 
 # 加载 powerlevel10k 主题
@@ -59,10 +63,6 @@ zi load paulirish/git-open
 #zi ice wait'!1' lucid
 #zi snippet ${myCache}/forNvm.zsh
 
-# if in macos
-function isMacos() {
-[[ $(uname -a | awk '{print $1}') == "Darwin" ]] && Macos=1
-}
 
 # 补全快捷键重设
 # bindkey ',' autosuggest-accept
@@ -71,7 +71,7 @@ function isMacos() {
 #zi update #升级其他插件,网络不好的时候慎用
 #zi delete --clean #清理没有加载的插件
 #zi cd 
-# }}} zinit config end
+# } zinit config end
 
 [[ -f "${myConfigPath}/p10k.zsh" ]] && source ${myConfigPath}/p10k.zsh
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
@@ -83,9 +83,7 @@ alias unproxy='unset http_proxy https_proxy' # 取消终端代理
 # 取消common-aliases库的rm=rm -i
 unalias rm
 
-if [[ $Macos == 1]]
-# if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
-  echo "not in ubuntu"
+if [[ $Sys == "mac" ]] {
   alias setclash="nohup $HOME/clash/clash -d $HOME/clash >/dev/null 2>&1 &!"
   alias setclash_debug="$HOME/clash/clash -d $HOME/clash"
   alias unclash='pkill -9 clash'
