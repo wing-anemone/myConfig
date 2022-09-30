@@ -54,18 +54,16 @@ zi snippet OMZP::colored-man-pages
 zi snippet OMZP::common-aliases
 zi snippet OMZP::command-not-found # brew tap homebrew/command-not-found
 
-#zi ice wait'0' 
 zi load paulirish/git-open
+# 延迟加载zsh脚本(必须以.zsh结尾)
+#zi ice wait'!1' lucid
+#zi snippet ${myCache}/forNvm.zsh
 
-# 在macos中不使用
-if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
-  # alzy loading for zsh-nvm,so not use zi ice wait
-  export NVM_LAZY_LOAD=true
-  zi load lukechilds/zsh-nvm
-  [[ -f ${myCache}/forNvm.zsh ]] || echo "nvm use 18 > /dev/null" > ${myCache}/forNvm.zsh
-  zi ice wait'!1' lucid
-  zi snippet ${myCache}/forNvm.zsh
+# if in macos
+function isMacos() {
+[[ $(uname -a | awk '{print $1}') == "Darwin" ]] && Macos=1
 }
+
 # 补全快捷键重设
 # bindkey ',' autosuggest-accept
 
@@ -73,11 +71,10 @@ if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
 #zi update #升级其他插件,网络不好的时候慎用
 #zi delete --clean #清理没有加载的插件
 #zi cd 
-
 # }}} zinit config end
 
-[[ ! -f "${myConfigPath}/p10k.zsh" ]] || source ${myConfigPath}/p10k.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f "${myConfigPath}/p10k.zsh" ]] && source ${myConfigPath}/p10k.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 alias vi="nvim"
 alias setproxy='export http_proxy=http://127.0.0.1:7890; export https_proxy=$http_proxy;' # 设置终端代理
@@ -85,7 +82,10 @@ alias unproxy='unset http_proxy https_proxy' # 取消终端代理
 # 取消common-aliases库的rm=rm -i
 unalias rm
 
-if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
+if [[ $Macos == 1]]
+# if [[ $(uname -a | awk '{print $1}') != "Darwin" ]] {
+  echo "not in ubuntu"
   alias setclash="nohup $HOME/clash/clash -d $HOME/clash >/dev/null 2>&1 &!"
+  alias setclash_debug="$HOME/clash/clash -d $HOME/clash"
   alias unclash='pkill -9 clash'
 }
