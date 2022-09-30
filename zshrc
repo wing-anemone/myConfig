@@ -75,6 +75,7 @@ function isMacos() {
 
 [[ -f "${myConfigPath}/p10k.zsh" ]] && source ${myConfigPath}/p10k.zsh
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[ -f ~/.myZsh ] && source ~/.myZsh
 
 alias vi="nvim"
 alias setproxy='export http_proxy=http://127.0.0.1:7890; export https_proxy=$http_proxy;' # 设置终端代理
