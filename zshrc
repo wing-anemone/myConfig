@@ -83,7 +83,7 @@ alias unproxy='unset http_proxy https_proxy' # 取消终端代理
 # 取消common-aliases库的rm=rm -i
 unalias rm
 
-if [[ $Sys == "mac" ]] {
+if [[ $Sys != "mac" ]] {
   alias setclash="nohup $HOME/clash/clash -d $HOME/clash >/dev/null 2>&1 &!"
   alias setclash_debug="$HOME/clash/clash -d $HOME/clash"
   alias unclash='pkill -9 clash'
