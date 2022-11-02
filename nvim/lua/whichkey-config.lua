@@ -10,8 +10,8 @@ wk.setup({
 -- normal mode
 wk.register({
   -- entry for floater terminal
-  ["<c-n>"] = {"<cmd>FloatermToggle<cr>","toggle float-terminal"},
-  ["<c-t>"] = { "<cmd>FloatermNew zsh<cr>", "new float-terminal: zsh" },
+  -- ["<c-n>"] = {"<cmd>FloatermToggle<cr>","toggle float-terminal"},
+  -- ["<c-t>"] = { "<cmd>FloatermNew zsh<cr>", "new float-terminal: zsh" },
   ["<c-j>"]  = {"<cmd>:cn<cr>","next item of quickfix"},
   ["<c-k>"] = {"<cmd>:cp<cr>","pre item of quickfix"},
   ["<c-l>"] = { "<cmd>:wincmd w<cr>", "switch window" },
@@ -147,8 +147,8 @@ wk.register({
 }, { mode = "v" })
 
 wk.register({
-  ["<c-t>"] = { "<cmd>FloatermNew zsh<cr>", "new terminal" },
-  ["<c-n>"] = { "<cmd>FloatermToggle<cr>", "back to vim" },
+  -- ["<c-t>"] = { "<cmd>FloatermNew zsh<cr>", "new terminal" },
+  -- ["<c-n>"] = { "<cmd>FloatermToggle<cr>", "back to vim" },
   ["<c-j>"] = { "<cmd>FloatermNext<cr>", "next float-terminal" },
   ["<c-k>"] = { "<cmd>FloatermPrev<cr>", "prev float-terminal" },
   -- 这个失败了，mode = p 也失败了，先放着了。
