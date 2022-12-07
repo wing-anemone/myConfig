@@ -208,3 +208,8 @@ else
   endif
   "call DownloadEverforest() "alacritty not need
 endif
+if has('macunix')
+  vmap <C-k> :py3f /opt/homebrew/Cellar/clang-format/15.0.5/share/clang/clang-format.py<CR>
+else
+  vmap <C-k> :py3f /usr/share/vim/addons/syntax/clang-format.py<CR>
+endif

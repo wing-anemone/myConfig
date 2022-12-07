@@ -30,8 +30,8 @@ if [[ $first == "y" || $first == "yes" ]]; then
   cmake --build Release && cd
   # accelerate for telescope
   git clone --depth=1 https://github.com/junegunn/fzf.git $HOME/.fzf
-  # For Ubuntu, install nodejs 18.9.1
-  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  # For Ubuntu, install nodejs 19
+  curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
   sudo apt-get install -y nodejs
 fi 
 
