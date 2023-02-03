@@ -16,6 +16,11 @@ Config=$HOME/.config
 ln -s $HOME/myConfig/nvim $Config/nvim
 ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
 ln -sf $HOME/myConfig/nvim/vim/vimrc $HOME/.vimrc
+Zellij=$Config/zellij
+if [[ ! -d $Zellij ]]; then 
+  mkdir -p $Zellij
+fi
+ln -sf $HOME/myConfig/zellij.yaml $Zellij/config.yaml
 
 # 第一次运行脚本
 if [[ $first == "y" || $first == "yes" ]]; then
@@ -23,7 +28,7 @@ if [[ $first == "y" || $first == "yes" ]]; then
   # wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/SourceCodePro.zip
   # unzip SourceCodePro.zip -d $HOME/.fonts
   # 下载安装 neovim
-  wget -O nvim-linux64-0.7.2.deb https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.deb
+  wget -O nvim-linux64.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
   # ccls for lsp
   git clone --depth=1 --recursive https://github.com/MaskRay/ccls && cd ccls
   cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release
@@ -36,7 +41,7 @@ if [[ $first == "y" || $first == "yes" ]]; then
 fi 
 
 # fc-cache -fv $HOME/.fonts
-sudo apt install $HOME/nvim-linux64-0.7.2.deb
+sudo apt install $HOME/nvim-linux64.deb
 
 cd $HOME/ccls/Release
 sudo make install && cd
