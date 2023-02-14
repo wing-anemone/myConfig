@@ -1,5 +1,6 @@
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
+local actions = require('telescope.actions')
 require('telescope').setup {
   defaults = {
     layout_strategy = "vertical",
@@ -10,6 +11,12 @@ require('telescope').setup {
         width = 0.9
       }
       -- other layout configuration here
+    },
+    mappings = {
+      n = {
+        ["a"] = actions.send_selected_to_qflist,
+        ["A"] = actions.send_to_qflist,
+      },
     },
     -- other defaults configuration here
   },
