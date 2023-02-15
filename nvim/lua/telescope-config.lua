@@ -14,8 +14,8 @@ require('telescope').setup {
     },
     mappings = {
       n = {
-        ["a"] = actions.send_selected_to_qflist,
-        ["A"] = actions.send_to_qflist,
+        ["q"] = actions.send_selected_to_qflist,
+        ["Q"] = actions.send_to_qflist,
       },
     },
     -- other defaults configuration here
