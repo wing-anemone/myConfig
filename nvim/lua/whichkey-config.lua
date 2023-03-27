@@ -71,6 +71,7 @@ wk.register({
     ['a'] = {
       name = "+misc",
       a = { "<cmd>SourcetrailActivateToken<cr>", "activate sourcetrail server" },
+      c = { "<cmd>BDelete hidden<cr>", "close invisible buffers" },
       d = { "<cmd>call TrimWhitespace()<cr>", "remove trailing space" },
       r = { "<cmd>SourcetrailRefresh<cr>", "sourcetrail refresh" },
       s = { "<cmd>SourcetrailStartServer<cr>", "start sourcetrail server" },
@@ -141,7 +142,7 @@ wk.register({
       ["f"] = { "<Plug>(coc-format-selected)<cr>", "format selected code" },
     },
     ["s"] = { ":lua require('spectre').open_visual()<cr>", "search" },
-    ["y"] = { ":OSCYank<cr>", "OSCYank" }
+    ["y"] = { ":OSCYankVisual<cr>", "OSCYankVisual" }
   },
   q = { "<cmd>q<cr>", "close window" },
 }, { mode = "v" })
