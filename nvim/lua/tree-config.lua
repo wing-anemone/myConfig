@@ -1,25 +1,25 @@
 -- change default mappings
-local list = {
-  { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
-  { key = "h",                                 action = "close_node" },
-  { key = "p",                                 action = "preview" },
-  { key = "<C-r>",                             action = "refresh" },
-  { key = "yn",                                action = "copy_name" },
-  { key = "yp",                                action = "copy_path" },
-  { key = "yy",                                action = "copy_absolute_path" },
-  { key = "a",                                 action = "create" },
-  { key = "d",                                 action = "remove" },
-  { key = "r",                                 action = "rename" },
-  { key = "?",                                 action = "toggle_help" },
-}
+--local list = {
+--  { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
+--  { key = "h",                                 action = "close_node" },
+--  { key = "p",                                 action = "preview" },
+--  { key = "<C-r>",                             action = "refresh" },
+--  { key = "yn",                                action = "copy_name" },
+--  { key = "yp",                                action = "copy_path" },
+--  { key = "yy",                                action = "copy_absolute_path" },
+--  { key = "a",                                 action = "create" },
+--  { key = "d",                                 action = "remove" },
+--  { key = "r",                                 action = "rename" },
+--  { key = "?",                                 action = "toggle_help" },
+--}
 
 require'nvim-tree'.setup {
+  sort_by = "case_sensitive",
+  renderer = {
+    group_empty = true,
+  },
   view = {
     side = 'right',
-    mappings = {
-      custom_only = true,
-      list = list
-    },
   },
   actions = {
     open_file = {

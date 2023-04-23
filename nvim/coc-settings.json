@@ -51,15 +51,5 @@
   "diagnostic-languageserver.formatFiletypes": {
     "sh": "shfmt"
   },
-  "sumneko-lua.enableNvimLuaDev": true,
-  "Lua.telemetry.enable": true,
-  "bash": {
-    "command": "bash-language-serve",
-    "filetypes": [
-      "sh"
-    ],
-    "args": [
-      "start"
-    ]
-  }
+  "sumneko-lua.enableNvimLuaDev": true
 }
