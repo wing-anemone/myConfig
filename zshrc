@@ -74,7 +74,7 @@ zi load paulirish/git-open
 # } zinit config end
 
 [[ -f "${myConfigPath}/p10k.zsh" ]] && source ${myConfigPath}/p10k.zsh
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+#[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 [ -f ~/.myZsh ] && source ~/.myZsh
 
 alias vi="nvim"

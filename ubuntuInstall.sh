@@ -7,7 +7,7 @@ read first
 [[ -z $first ]] && first="N"
 cd
 apt update
-apt install zsh subversion libclang-12-dev ripgrep
+apt install zsh subversion libclang-12-dev ripgrep fd-find
 
 Config=$HOME/.config
 
@@ -34,7 +34,10 @@ if [[ $first == "y" || $first == "yes" ]]; then
   cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release
   cmake --build Release && cd
   # accelerate for telescope
-  git clone --depth=1 https://github.com/junegunn/fzf.git $HOME/.fzf
+
+  # wait for delete
+  # git clone --depth=1 https://github.com/junegunn/fzf.git $HOME/.fzf
+
   # For Ubuntu, install nodejs 19
   curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
   sudo apt-get install -y nodejs
@@ -47,7 +50,7 @@ cd $HOME/ccls/Release
 sudo make install && cd
 
 # 这个貌似不需要重复安装
-bash $HOME/.fzf/install
+# bash $HOME/.fzf/install
 
 # python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade pynvim

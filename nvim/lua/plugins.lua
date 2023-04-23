@@ -53,10 +53,9 @@ require("packer").startup({
     use 'honza/vim-snippets' -- 安装公共的的 snippets
     use 'mbbill/undotree' -- 显示编辑的历史记录
     -- c/c++
-    use 'jackguo380/vim-lsp-cxx-highlight' -- 为 c/cpp 提供基于 lsp 的高亮
-    use 'skywind3000/vim-cppman' -- http://cplusplus.com/ 和 http://cppreference.com/ 获取文档
+    -- use 'jackguo380/vim-lsp-cxx-highlight' -- 为 c/cpp 提供基于 lsp 的高亮
+    -- use 'skywind3000/vim-cppman' -- http://cplusplus.com/ 和 http://cppreference.com/ 获取文档
     -- 书签
-    -- use 'MattesGroeger/vim-bookmarks'
     -- use 'tom-anders/telescope-vim-bookmarks.nvim' -- 辅助书签的搜索
     -- 高亮
     use 'norcalli/nvim-colorizer.lua' -- 显示 #FFFFFF
@@ -69,7 +68,7 @@ require("packer").startup({
     -- 其他
     use 'windwp/nvim-spectre' -- 媲美 vscode 的多文件替换
     use 'CoatiSoftware/vim-sourcetrail' -- sourcetrail 插件
-    use 'tyru/open-browser.vim' -- 使用 gx 打开链接
+    -- use 'tyru/open-browser.vim' -- 使用 gx 打开链接
     use 'h-hg/fcitx.nvim' -- 自动切换输入法
     -- use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
     use {'ojroques/vim-oscyank', branch = 'main'}

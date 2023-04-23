@@ -4,7 +4,7 @@
 
 set -uxo pipefail
 
-brew install zsh wget subversion alacritty zellij
+brew install zsh wget subversion alacritty zellij ripgrep fd-find
 
 Config=$HOME/.config
 
