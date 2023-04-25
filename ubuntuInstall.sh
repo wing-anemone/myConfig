@@ -27,20 +27,18 @@ if [[ $first == "y" || $first == "yes" ]]; then
   # 安装SauceCodePro Nerd Font字体
   # wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/SourceCodePro.zip
   # unzip SourceCodePro.zip -d $HOME/.fonts
+
   # 下载安装 neovim
-  wget -O nvim-linux64.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+  # wget -O nvim-linux64.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+
   # ccls for lsp
   git clone --depth=1 --recursive https://github.com/MaskRay/ccls && cd ccls
   cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release
   cmake --build Release && cd
-  # accelerate for telescope
-
-  # wait for delete
-  # git clone --depth=1 https://github.com/junegunn/fzf.git $HOME/.fzf
 
   # For Ubuntu, install nodejs 19
   curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-  sudo apt-get install -y nodejs
+  apt-get install -y nodejs
 fi 
 
 # fc-cache -fv $HOME/.fonts
@@ -48,9 +46,6 @@ sudo apt install $HOME/nvim-linux64.deb
 
 cd $HOME/ccls/Release
 sudo make install && cd
-
-# 这个貌似不需要重复安装
-# bash $HOME/.fzf/install
 
 # python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade pynvim

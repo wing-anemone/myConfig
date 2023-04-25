@@ -75,6 +75,7 @@ zi load paulirish/git-open
 
 [[ -f "${myConfigPath}/p10k.zsh" ]] && source ${myConfigPath}/p10k.zsh
 #[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+PATH=$PATH:/root/squashfs-root/usr/bin
 [ -f ~/.myZsh ] && source ~/.myZsh
 
 alias vi="nvim"

@@ -82,6 +82,7 @@ set incsearch " /输入每个字母都显示高亮
 set ignorecase smartcase "忽视大小写，除非出现一个大写字母
 "set nowrapscan  "搜索到最后匹配的位置后,再次搜索不回到第一个匹配处
 "set laststatus=1 "显示x行状态
+let g:indentLine_conceallevel=0 "默认显示json文件的双引号
 
 if has("termguicolors")
   "echom "support termguicolors"

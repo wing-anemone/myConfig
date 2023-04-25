@@ -84,7 +84,6 @@ let s:coc_extensions = [
       \ 'coc-ci',
       \ 'coc-pyright',
       \ 'coc-dictionary',
-      \ 'coc-rust-analyzer',
       \ 'coc-vimlsp',
       \ 'coc-snippets',
       \ 'coc-smartf',
