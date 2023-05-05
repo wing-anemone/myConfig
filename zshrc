@@ -9,8 +9,8 @@ fi
 [[ $(uname -a | awk '{print $1}') == "Darwin" ]] && Sys="mac"
 
 myConfigPath="$HOME/myConfig"
-#myCache=${myConfigPath}/cache
-myCache=/cache
+myCache=${myConfigPath}/cache
+#myCache=/cache
 
 # { zinit config begin
 ZINIT_HOME="${XDG_DATA_HOME:-${myCache}}/zinit/zinit.git"
