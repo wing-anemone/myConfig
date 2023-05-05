@@ -9,7 +9,8 @@ fi
 [[ $(uname -a | awk '{print $1}') == "Darwin" ]] && Sys="mac"
 
 myConfigPath="$HOME/myConfig"
-myCache=${myConfigPath}/cache
+#myCache=${myConfigPath}/cache
+myCache=/cache
 
 # { zinit config begin
 ZINIT_HOME="${XDG_DATA_HOME:-${myCache}}/zinit/zinit.git"
@@ -30,8 +31,7 @@ zi snippet OMZL::key-bindings.zsh
 zi snippet OMZL::clipboard.zsh
 zi snippet OMZL::completion.zsh
 zi snippet OMZL::theme-and-appearance.zsh
-zinit snippet OMZL::clipboard.zsh
-zinit snippet OMZL::termsupport.zsh
+# zinit snippet OMZL::termsupport.zsh
 
 # 读取一个文件夹
 # apt install subversion
@@ -74,8 +74,7 @@ zi load paulirish/git-open
 # } zinit config end
 
 [[ -f "${myConfigPath}/p10k.zsh" ]] && source ${myConfigPath}/p10k.zsh
-#[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-PATH=$PATH:/root/squashfs-root/usr/bin
+PATH=$PATH:/root/neovim/usr/bin
 [ -f ~/.myZsh ] && source ~/.myZsh
 
 alias vi="nvim"

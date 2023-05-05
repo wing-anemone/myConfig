@@ -16,11 +16,11 @@ Config=$HOME/.config
 ln -s $HOME/myConfig/nvim $Config/nvim
 ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
 ln -sf $HOME/myConfig/nvim/vim/vimrc $HOME/.vimrc
-Zellij=$Config/zellij
-if [[ ! -d $Zellij ]]; then 
-  mkdir -p $Zellij
-fi
-ln -sf $HOME/myConfig/zellij.yaml $Zellij/config.yaml
+# Zellij=$Config/zellij
+# if [[ ! -d $Zellij ]]; then 
+#   mkdir -p $Zellij
+# fi
+# ln -sf $HOME/myConfig/zellij.yaml $Zellij/config.yaml
 
 # 第一次运行脚本
 if [[ $first == "y" || $first == "yes" ]]; then
@@ -30,19 +30,22 @@ if [[ $first == "y" || $first == "yes" ]]; then
 
   # 下载安装 neovim
   # wget -O nvim-linux64.deb https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb
+  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+  ./nvim.appimage --appimage-extract
+  mv squashfs-root neovim
 
   # ccls for lsp
   git clone --depth=1 --recursive https://github.com/MaskRay/ccls && cd ccls
   cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release
   cmake --build Release && cd
 
-  # For Ubuntu, install nodejs 19
-  curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
+  # For Ubuntu, install nodejs 20
+  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
   apt-get install -y nodejs
 fi 
 
 # fc-cache -fv $HOME/.fonts
-sudo apt install $HOME/nvim-linux64.deb
+# sudo apt install $HOME/nvim-linux64.deb
 
 cd $HOME/ccls/Release
 sudo make install && cd
