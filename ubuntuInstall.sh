@@ -7,7 +7,7 @@ read first
 [[ -z $first ]] && first="N"
 cd
 apt update
-apt install zsh subversion libclang-12-dev ripgrep fd-find
+apt install zsh subversion libclang-12-dev ripgrep fd-find clang-format
 
 Config=$HOME/.config
 
@@ -24,6 +24,10 @@ ln -sf $HOME/myConfig/nvim/vim/vimrc $HOME/.vimrc
 
 # 第一次运行脚本
 if [[ $first == "y" || $first == "yes" ]]; then
+
+  cd /workspace
+  clang-format -style=google -dump-config > .clang-format
+
   # 安装SauceCodePro Nerd Font字体
   # wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/SourceCodePro.zip
   # unzip SourceCodePro.zip -d $HOME/.fonts
