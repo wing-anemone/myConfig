@@ -13,10 +13,7 @@
       "command": "ccls",
       "filetypes": [
         "c",
-        "cpp",
-        "cuda",
-        "objc",
-        "objcpp"
+        "cpp"
       ],
       "rootPatterns": [
         "compile_commands.json",
@@ -50,6 +47,5 @@
   },
   "diagnostic-languageserver.formatFiletypes": {
     "sh": "shfmt"
-  },
-  "sumneko-lua.enableNvimLuaDev": true
+  }
 }
