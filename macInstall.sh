@@ -1,41 +1,87 @@
 #!/bin/bash
-# this script for macos
-# need to check fialed command
+#================================================================
+#   Copyright (C) 2022 All rights reserved.
+#
+#   Created by: Anemone
+#   Created in: 2023-05-06
+#
+#================================================================
 
-set -uxo pipefail
-echo "the first time you run? [y/N]"
-read first
-[[ -z $first ]] && first="N"
-cd
+# 使用方法
+# bash macInstall.sh : 默认参数启动
 
-brew install zsh wget subversion alacritty \
-  zellij ripgrep fd-find clang-format
+Config=$HOME/.config
+First="NO"
 
-readonly Config=$HOME/.config
 readonly Alacritty=$Config/alacritty
 readonly Zellij=$Config/zellij
 
-if [[ ! -d $Alacritty ]]; then 
-  mkdir -p $Alacritty
-fi
-if [[ ! -d $Zellij ]]; then 
-  mkdir -p $Zellij
-fi
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
+}
+help() {
+  echo "Options:"
+  echo "  -c:"
+  echo "    set default config path"
+  echo "    default $HOME/.config"
+  echo "  -f:"
+  echo "    flag for first install,"
+  echo "    such as Fonts"
+}
+parse_opts() {
+  while getopts 'c:fh' flag; do
+    case "${flag}" in
+      c) Config="${OPTARG}" ;;
+      f) First="YES" ;;
+      h)
+        help
+        exit 0 ;;
+      *)
+        err "Unexpected option ${flag}"
+        help
+        exit 0 ;;
+    esac
+  done
+}
 
-# 如果存在软链，直覆盖
-ln -sf $HOME/myConfig/alacritty.yml $Alacritty/alacritty.yml
-ln -sf $HOME/myConfig/zellij.kdl $Zellij/config.kdl
-ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
-ln -sf $HOME/myConfig/nvim/vim/vimrc $HOME/.vimrc
-
-# 重复链接目录会出现在后者目录里
-if [[ -d $Config/nvim ]]; then
-  rm $Config/nvim
-fi
-ln -s $HOME/myConfig/nvim $Config/nvim
-
-# 第一次运行脚本，需要安装SauceCodePro Nerd Font字体
-if [[ $first == "y" || $first == "yes" ]]; then
+InsMacBasic() {
+  brew install zsh wget neovim subversion alacritty \
+    zellij ripgrep fd-find clang-format
+}
+LinkTerminal() {
+  if [[ ! -d $Alacritty ]]; then 
+    mkdir -p $Alacritty
+  fi
+  ln -si $PWD/alacritty.yml $Alacritty
+}
+LinkZellij() {
+  if [[ ! -d $Zellij ]]; then 
+    mkdir -p $Zellij
+  fi
+  ln -si $PWD/zellij.kdl $Zellij/config.kdl
+}
+InsFont() {
+  # 安装SauceCodePro Nerd Font字体
   brew tap homebrew/cask-fonts
   brew install font-sauce-code-pro-nerd-font --cask
-fi 
+}
+LinkSetting() {
+  LinkTerminal
+  LinkZellij
+  # -s 软链，-i交互模式询问覆盖
+  ln -si $PWD/zshrc $HOME/.zshrc
+  ln -si $PWD/nvim/vim/vimrc $HOME/.vimrc
+  ln -sFi $PWD/nvim $Config
+}
+Install() {
+  if [[ $First == "YES" ]]; then
+    InsMacBasic
+    InsFont
+  fi
+}
+main() {
+  parse_opts "$@"
+  Install
+  LinkSetting
+}
+main "$@"

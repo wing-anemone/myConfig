@@ -1,9 +1,4 @@
 #!/bin/bash
-
-
-Zellij=$Config/zellij
-
+Zellij=$HOME/.config/zellij
 [[ ! -d $Zellij ]] mkdir -p $Zellij
-ln -sf $HOME/myConfig/zellij.yaml $Zellij/config.yaml
-
-
+ln -si $PWD/zellij.kdl $Zellij/config.kdl

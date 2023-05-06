@@ -16,17 +16,13 @@ Config=$HOME/.config
 ln -s $HOME/myConfig/nvim $Config/nvim
 ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
 ln -sf $HOME/myConfig/nvim/vim/vimrc $HOME/.vimrc
-# Zellij=$Config/zellij
-# if [[ ! -d $Zellij ]]; then 
-#   mkdir -p $Zellij
-# fi
-# ln -sf $HOME/myConfig/zellij.yaml $Zellij/config.yaml
 
 # 第一次运行脚本
 if [[ $first == "y" || $first == "yes" ]]; then
 
   cd /workspace
   clang-format -style=google -dump-config > .clang-format
+  cd
 
   # 安装SauceCodePro Nerd Font字体
   # wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/SourceCodePro.zip
