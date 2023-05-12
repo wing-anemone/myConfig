@@ -28,29 +28,14 @@ wk.register({
       b = { "<cmd>Telescope current_buffer_fuzzy_find<cr>]", "current_buffer_fuzzy_find" }
     },
     -- d = { "<cmd>Telescope coc workspace_diagnostics<cr>", "show coc diagnostics" },
-    -- i = { "<cmd>Octo issue list<cr>", "list github issue" },
     -- F = { "<cmd>Telescope git_files<cr>", "search files (exclude submodules)" },
     f = { "<cmd>Telescope find_files<cr>", "search files (include submodules)" },
     g = { "<cmd>Telescope live_grep<cr>", "live grep" },
     G = { "<cmd>Telescope grep_string<cr>", "live grep cursor word" },
     h = { "<cmd>Telescope help_tags<cr>", "search vim manual" },
-    k = { "<cmd>Telescope colorscheme<cr>", "colorscheme" },
     o = { "<cmd>call Outline()<cr>", "search symbols in file" },
     -- leader p used for paste from system clipboard
-    s = { "<cmd>Telescope coc workspace_symbols<cr>", "search symbols in project" },
-
-    -- " 使用 <leader> [number] 切换到第 [number] 个 window
-    ["1"] = { "<cmd>1wincmd  w <cr>", "jump to window 1" },
-    ["2"] = { "<cmd>2wincmd  w <cr>", "jump to window 2" },
-    ["3"] = { "<cmd>3wincmd  w <cr>", "jump to window 3" },
-    ["4"] = { "<cmd>4wincmd  w <cr>", "jump to window 4" },
-    ["5"] = { "<cmd>5wincmd  w <cr>", "jump to window 5" },
-    ["6"] = { "<cmd>6wincmd  w <cr>", "jump to window 6" },
-    ["7"] = { "<cmd>7wincmd  w <cr>", "jump to window 7" },
-    ["8"] = { "<cmd>8wincmd  w <cr>", "jump to window 8" },
-    ["9"] = { "<cmd>9wincmd  w <cr>", "jump to window 9" },
-    ["0"] = { "<cmd>10wincmd w <cr>", "jump to window 0" },
-
+    s = { "<cmd>Telescope coc workspace_symbols<cr>", "search symbols in project" }
   },
 
   -- " 使用 space [number] 切换到第 [number] 个 buffer
@@ -114,11 +99,10 @@ wk.register({
   },
   ["c"] = {
     name = "+window",
-    -- v = { "<cmd>vsp<cr>", "vertical split window" },  -- has defeined in vimrc
-    -- h = { "<cmd>sp<cr>", "horizontal split window" }, -- has defeined in vimrc
     m = { "<cmd>only<cr>", "maximize current window" },
     u = { "<cmd>UndotreeToggle<cr>", "open undo tree" },
     n = { ":Vista!!<cr>", "toggle vista navigator" },
+    v = { ":vsp<cr>", "vertical split, :vsp"}
   },
   ["m"] = {
     name = "+bookmarks",

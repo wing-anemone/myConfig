@@ -104,7 +104,6 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap <space>y "+y
 nnoremap cv :vsp<cr>
-nnoremap ch :sp<cr>
 
 " autocmd, grammar: http://www.jiatcool.com/?p=597
 if has("autocmd")
