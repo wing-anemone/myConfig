@@ -47,5 +47,6 @@
   },
   "diagnostic-languageserver.formatFiletypes": {
     "sh": "shfmt"
-  }
+  },
+  "Lua.diagnostics.globals": ["vim"]
 }

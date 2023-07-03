@@ -17,8 +17,8 @@ scriptencoding utf-8
 set encoding=utf-8        "查看utf-8格式的帮助文档
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312,big5,latin1
-set fileformats=unix,dos
 set fileformat=unix
+set fileformats=unix,dos
 " chinese
 " set ambiwidth=double "显示中文引号，开了给自己找事
 " 当出现 &#24573;&#28982; 的编码时，通过如下命令转换

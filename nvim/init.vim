@@ -28,6 +28,7 @@ lua require 'buffer-config'
 lua require 'telescope-config'
 lua require 'tree-config'
 lua require 'whichkey-config'
+lua require 'treesitter'
 lua require 'code-runner-config'
 lua require 'colorizer'.setup{'css'; 'javascript'; 'vim'; 'lua'; 'yaml'; html = { mode = 'foreground';}}
 lua require('nvim-autopairs').setup{}

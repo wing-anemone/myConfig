@@ -7,7 +7,7 @@ require("packer").startup({
     -- 基础
     use 'nvim-lua/plenary.nvim' -- 很多 lua 插件依赖的库
     use {'neoclide/coc.nvim', branch = 'release'} -- lsp
-    use 'nvim-treesitter/nvim-treesitter' -- 基于语义的高亮
+    use {'nvim-treesitter/nvim-treesitter',run= ':TSUpdate'} -- 基于语义的高亮
     use 'kyazdani42/nvim-web-devicons' -- 显示图标
     use 'folke/which-key.nvim' -- 用于配置和提示快捷键
     -- ui
@@ -61,7 +61,6 @@ require("packer").startup({
     use 'norcalli/nvim-colorizer.lua' -- 显示 #FFFFFF
     use 'andymass/vim-matchup' -- 高亮匹配的元素，例如 #if 和 #endif
     -- 时间管理
-    -- use 'nvim-orgmode/orgmode' -- 日程管理
     -- use 'wakatime/vim-wakatime' -- 用于统计代码时间
     -- latex
     -- use 'lervag/vimtex'

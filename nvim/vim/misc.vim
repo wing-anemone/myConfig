@@ -20,9 +20,6 @@ let g:bookmark_auto_close = 1
 let g:git_messenger_always_into_popup = v:true
 let g:git_messenger_no_default_mappings = v:true
 
-" 设置默认的 pdf 阅览工具
-let g:vimtex_view_method = 'zathura'
-
 let g:vista_sidebar_position = "vertical topleft"
 let g:vista_default_executive = 'coc'
 let g:vista_finder_alternative_executives = 'ctags'
@@ -32,10 +29,7 @@ tnoremap  <Esc>  <C-\><C-n>
 " 透明化显示
 hi Normal ctermbg=none ctermfg=none guifg=none guibg=none 
 hi EndOfBuffer ctermbg=none ctermfg=none guifg=none guibg=none
-
-" 使用 gx 在 vim 中间直接打开链接
-nnoremap gx <Plug>(openbrowser-smart-search)
-vnoremap gx <Plug>(openbrowser-smart-search)
+hi NormalNC ctermbg=none ctermfg=none guifg=none guibg=none
 " /mapping
 
 " autocmd, vim autocmd  http://www.jiatcool.com/?p=597
