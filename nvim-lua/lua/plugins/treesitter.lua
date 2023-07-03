@@ -4,7 +4,7 @@ local M = {
 }
 M.init = function()
   vim.wo.foldmethod = "expr"
-  vim.wo.foldlevel = 2
+  vim.wo.foldlevel = 50
   vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 end
 
