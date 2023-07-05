@@ -1,5 +1,5 @@
 local M = {
-  "ggandor/leap.nvim",
+  "ggandor/leap.nvim", -- 4键跳转/多win跳转/ds...定向删除
   event = { "BufReadPost", "BufNewFile" },
 }
 M.config = function()

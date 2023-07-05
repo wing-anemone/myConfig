@@ -7,7 +7,7 @@ M.config = function()
   vim.g.coc_global_extensions = { 'coc-ccls', 'coc-sh', 'coc-sumneko-lua', 'coc-translator' }
   local keyset = vim.keymap.set
   -- should'nt attach <cr>
-  keyset('n', '<leader>t', '<Plug>(coc-translator-p)', { silent = true })
+  keyset('n', '<space>d', '<Plug>(coc-translator-p)', { silent = true })
 
   -- Some servers have issues with backup files, see #649
   vim.opt.backup = false
@@ -58,8 +58,8 @@ M.config = function()
   -- keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
 
   -- Formatting selected code
-  keyset("v", "<space>lf", "<Plug>(coc-format-selected)<Cr>")
-  keyset("n", "<space>lf", '<cmd>call CocAction("format")<Cr>', { silent = 1, desc = 'coc format' })
+  keyset("v", "<space>f", "<Plug>(coc-format-selected)<Cr>")
+  keyset("n", "<space>f", '<cmd>call CocAction("format")<Cr>', { silent = 1, desc = 'coc format' })
 
   -- Setup formatexpr specified filetype(s)
   vim.api.nvim_create_autocmd("FileType", {
@@ -99,6 +99,8 @@ M.config = function()
   -- Add (Neo)Vim's native statusline support
   -- NOTE: Please see `:h coc-status` for integrations with external plugins that
   -- provide custom statusline: lightline.vim, vim-airline
-  vim.opt.statusline:prepend("ok%{coc#status()}%{get(b:,'coc_current_function','')}")
+  -- local txt = require('gitblame').get_current_blame_text()
+  vim.opt.statusline:prepend(
+    "%{coc#status()}%{get(b:,'coc_current_function','')}")
 end
 return M

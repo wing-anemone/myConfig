@@ -1,6 +1,5 @@
 local M = {
   'nvim-treesitter/nvim-treesitter', -- 基于语义的高亮
-  -- lazy=true,
   -- run = ':TSUpdate'
 }
 M.init = function()
@@ -11,7 +10,7 @@ end
 
 M.config = function()
   require("nvim-treesitter.configs").setup({
-    -- ensure_installed = { 'cpp', 'python', 'lua' },
+    -- ensure_installed = { 'cpp', 'python', 'lua' },--自动安装
     highlight = {
       enable = true,
       use_languagetree = false,

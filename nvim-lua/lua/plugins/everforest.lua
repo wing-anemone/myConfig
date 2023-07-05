@@ -1,5 +1,5 @@
 local M = {
-  'sainnhe/everforest',
+  'sainnhe/everforest',--我最喜欢的配色
   lazy = false,
 }
 M.config = function()

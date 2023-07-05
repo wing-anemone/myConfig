@@ -1,10 +1,9 @@
 local M = {
-  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope.nvim',--万能无敌各种搜索
   tag = '0.1.2', -- or branch = '0.1.x',
   dependencies = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep','fannheyward/telescope-coc.nvim' }
 }
 M.config = function()
-
   local keyset = vim.keymap.set
   local opts = { silent = true, nowait = true }
   keyset("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
@@ -19,13 +18,6 @@ M.config = function()
   keyset('n','gy',"<cmd>Telescope coc type_definitions<cr>",opts)
   keyset('n','gi',"<cmd>Telescope coc declarations<cr>",opts)
   keyset('n','gr',"<cmd>Telescope coc references_used<cr>",opts)
-  --nmap <silent> <nowait> gd : <C-u>Telescope coc definitions<cr>
-  --nmap <silent> <nowait> gh : <C-u>Telescope coc declarations<cr>
-  --nmap <silent> <nowait> gy : <C-u>Telescope coc type_definitions<cr>
-  --nmap <silent> <nowait> gk : <C-u>Telescope coc implementations<cr>
-  --nmap <silent> <nowait> gr : <C-u>Telescope coc references_used<cr>
-
-
 
   local actions = require('telescope.actions')
   require('telescope').setup {

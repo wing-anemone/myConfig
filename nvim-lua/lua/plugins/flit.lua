@@ -1,9 +1,9 @@
 local M = {
-  "ggandor/flit.nvim",
-  -- dependencies = 'ggandor/leap.nvim',
+  "ggandor/flit.nvim", --ff高亮多匹配
+  dependencies = 'ggandor/leap.nvim',
 }
-M.config = function()
-  require('flit').setup {
+-- automatically call `require("flit").setup(opts)`
+M.opts = {
   keys = { f = 'f', F = 'F', t = 't', T = 'T' },
   -- A string like "nv", "nvo", "o", etc.
   labeled_modes = "v",
@@ -12,6 +12,4 @@ M.config = function()
   -- E.g.: opts = { equivalence_classes = {} }
   opts = {}
 }
-end
 return M
-

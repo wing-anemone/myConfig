@@ -1,5 +1,5 @@
 local M = {
-  'gelguy/wilder.nvim', --更加智能的命令窗口
+  'gelguy/wilder.nvim', -- cmd fuzzy & 补全
   dependencies = { 'romgrk/fzy-lua-native', },
 }
 M.config = function()
