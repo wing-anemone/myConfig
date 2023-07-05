@@ -1,3 +1,38 @@
 {
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": ["vim"],
+  "translator.engines": [
+    "youdao",
+    "haici"
+  ],
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": [
+        "cpp",
+        "c"
+      ],
+      "rootPatterns": [
+        "compile_commands.json",
+        ".ccls",
+        ".git/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/cache/ccls-cache"
+        },
+        "highlight": {
+          "lsRanges": true
+        },
+        "client": {
+          "snippetSupport": true
+        },
+        "clang": {
+          "extraArgs": [
+            "-std=c++17",
+            "-Wall"
+          ]
+        }
+      }
+    }
+  }
 }

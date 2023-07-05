@@ -24,10 +24,7 @@ M.config = function()
           },
           {
             name = "c",
-            highlight = { undercurl = true, sp = "green" },
-            auto_close = false, -- whether or not close this group if it doesn't contain the current buffer
-            matcher = function(buf)
-              return buf.name:match('%.c') or buf.name:match('%.cpp')
+             return buf.name:match('%.c') or buf.name:match('%.cpp')
             end,
             separator = { -- Optional
               style = require('bufferline.groups').separator.tab

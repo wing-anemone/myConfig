@@ -19,7 +19,7 @@ require("basic.autocmd")
 
 local lazy_config = {
   git = {
-    timeout = 120, -- kill processes that take more than 2 minutes
+    timeout = 20, -- kill processes that take more than 2 minutes
     url_format = "https://github.com/%s.git",
     filter = true,
   },

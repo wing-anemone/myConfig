@@ -67,4 +67,4 @@ o.incsearch = 1    -- /输入每个字母都显示高亮
 o.ignorecase = 1
 o.smartcase = 1    --忽视大小写，除非出现一个大写字母
 o.nowrapscan = 1   --搜索到最后匹配的位置后,再次搜索不回到第一个匹配处
-o.cmdheight = 0
+o.cmdheight = 1
