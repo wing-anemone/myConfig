@@ -9,17 +9,19 @@ keyset("n", "q", ":q!<Cr>", opt) --fast quite
 
 -- buffer
 -- keyset("n", "<space>d", "<cmd>bdelete %<cr>")
-keyset("n", "<space>l", "<cmd>bnext<cr>")
-keyset("n", "<space>h", "<cmd>bNext<cr>")
+keyset("n", "<c-l>", "<cmd>bnext<cr>")
+keyset("n", "<c-h>", "<cmd>bNext<cr>")
+--keyset('n', '<c-h>', ':wincmd h<cr>', opt) --default: <c-w>h
+--keyset('n', '<c-l>', ':wincmd l<cr>', opt) --default: <c-w>l
 
 -- window
-keyset("n", "cv", ":vsp<cr>", opt)
---keyset('n', '<c-h>', ':wincmd h<cr>', opt)
---keyset('n', '<c-l>', ':wincmd l<cr>', opt)
+keyset("n", "cv", ":vsp<cr>", opt) --vertical split win
+--keyset('n', '<c-h>', ':wincmd h<cr>', opt) --default: <c-w>h
+--keyset('n', '<c-l>', ':wincmd l<cr>', opt) --default: <c-w>l
 
 -- 上下的win switch逻辑很少使用，用来切换quickfix
-keyset('n', '<c-k>', ':cn<cr>', opt)
-keyset('n', '<c-j>', ':cp<cr>', opt)
+keyset('n', '<c-j>', ':cn<cr>', opt)
+keyset('n', '<c-k>', ':cp<cr>', opt)
 
 
 -- move

@@ -58,8 +58,8 @@ M.config = function()
   -- keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
 
   -- Formatting selected code
-  keyset("v", "<space>f", "<Plug>(coc-format-selected)<Cr>")
-  keyset("n", "<space>f", '<cmd>call CocAction("format")<Cr>', { silent = 1, desc = 'coc format' })
+  keyset("v", "<space>lf", "<Plug>(coc-format-selected)<Cr>")
+  keyset("n", "<space>lf", '<cmd>call CocAction("format")<Cr>', { silent = 1, desc = 'coc format' })
 
   -- Setup formatexpr specified filetype(s)
   vim.api.nvim_create_autocmd("FileType", {

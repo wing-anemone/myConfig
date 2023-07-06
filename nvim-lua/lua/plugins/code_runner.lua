@@ -11,7 +11,7 @@ local quick = function ()
   end
 end
 M.config = function()
-  vim.keymap.set('n','<space>r',quick,{silent=true})
+  vim.keymap.set('n', '<space>lr', quick, { silent = true })
   require('code_runner').setup {
     term = {
       position = "belowright",
