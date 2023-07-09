@@ -4,10 +4,18 @@ local M = {
 }
 M.config = function()
   -- 需要安装的coc插件
-  vim.g.coc_global_extensions = { 'coc-ccls', 'coc-sh', 'coc-sumneko-lua', 'coc-translator' }
+  vim.g.coc_global_extensions = {
+    -- 'coc-ccls', -- has trouble, installed from ccls github
+    'coc-sh',
+    'coc-sumneko-lua',
+    'coc-translator',
+    'coc-symbol-line',
+  }
   local keyset = vim.keymap.set
+  -- coc plugins configs:
   -- should'nt attach <cr>
   keyset('n', '<space>d', '<Plug>(coc-translator-p)', { silent = true })
+
 
   -- Some servers have issues with backup files, see #649
   vim.opt.backup = false
@@ -19,7 +27,7 @@ M.config = function()
 
   -- Always show the signcolumn, otherwise it would shift the text each time
   -- diagnostics appeared/became resolved
-  vim.opt.signcolumn = "yes"
+  vim.opt.signcolumn = "number"
 
   -- Autocomplete
   function _G.check_back_space()
@@ -100,7 +108,15 @@ M.config = function()
   -- NOTE: Please see `:h coc-status` for integrations with external plugins that
   -- provide custom statusline: lightline.vim, vim-airline
   -- local txt = require('gitblame').get_current_blame_text()
-  vim.opt.statusline:prepend(
-    "%{coc#status()}%{get(b:,'coc_current_function','')}")
+
+  --coc-symbol-line
+  function _G.symbol_line()
+    local curwin = vim.g.statusline_winid or 0
+    local curbuf = vim.api.nvim_win_get_buf(curwin)
+    local ok, line = pcall(vim.api.nvim_buf_get_var, curbuf, 'coc_symbol_line')
+    return ok and line or ''
+  end
+  vim.o.statusline = '%!v:lua.symbol_line()'
+  --vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 end
 return M
