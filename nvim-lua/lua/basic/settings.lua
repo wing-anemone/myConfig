@@ -61,7 +61,7 @@ o.completeopt = 'preview,menu'
 
 o.cul = 1          -- 突出显示当前行,等同于 set cul
 o.cursorcolumn = 1 -- 突出显示当前列,等同于 set cuc
-o.colorcolumn = 80 --    Show vertical line where to wrap code
+o.colorcolumn = "80" --    Show vertical line where to wrap code
 o.hlsearch = 1     -- /高亮搜索
 o.incsearch = 1    -- /输入每个字母都显示高亮
 o.ignorecase = 1
