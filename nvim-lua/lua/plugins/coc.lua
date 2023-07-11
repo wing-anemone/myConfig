@@ -16,6 +16,27 @@ M.config = function()
   -- should'nt attach <cr>
   keyset('n', '<space>d', '<Plug>(coc-translator-p)', { silent = true })
 
+  function _G.symbol_open_close()
+    local is_open = vim.g.wing_symbol
+    if is_open == nil then
+      vim.fn.CocActionAsync('showOutline')
+      vim.g.wing_symbol = 1
+    else
+      vim.fn.CocActionAsync('hideOutline')
+      vim.g.wing_symbol = nil
+    end
+  end
+  keyset('n', '<space>ls', '<cmd>lua _G.symbol_open_close()<cr>', { silent = true })
+
+  -- 自动关闭 vim 如果 window 中只有一个 outline
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "CocTree*" },
+    callback = function()
+      if vim.fn.winnr('$') == 1 then
+        vim.cmd('quit')
+      end
+    end,
+  })
 
   -- Some servers have issues with backup files, see #649
   vim.opt.backup = false
@@ -103,22 +124,5 @@ M.config = function()
 
   -- " Add `:Fold` command to fold current buffer
   -- vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { nargs = '?' })
-
-  -- Add (Neo)Vim's native statusline support
-  -- NOTE: Please see `:h coc-status` for integrations with external plugins that
-  -- provide custom statusline: lightline.vim, vim-airline
-  -- local txt = require('gitblame').get_current_blame_text()
-
-  --coc-symbol-line
-  --[[
-  function _G.symbol_line()
-    local curwin = vim.g.statusline_winid or 0
-    local curbuf = vim.api.nvim_win_get_buf(curwin)
-    local ok, line = pcall(vim.api.nvim_buf_get_var, curbuf, 'coc_symbol_line')
-    return ok and line or ''
-  end
-  vim.o.winbar = '%!v:lua.symbol_line()'
-  ]]
-  --vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 end
 return M

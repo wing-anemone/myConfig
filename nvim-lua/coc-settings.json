@@ -1,4 +1,5 @@
 {
+  "outline.keepWindow": true,
   "Lua.diagnostics.globals": ["vim"],
   "translator.engines": [
     "youdao",

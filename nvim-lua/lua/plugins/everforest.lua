@@ -7,5 +7,8 @@ M.config = function()
   vim.cmd([[hi Normal ctermbg=none ctermfg=none guifg=none guibg=none ]])
   vim.cmd([[hi NormalNC ctermbg=none ctermfg=none guifg=none guibg=none ]])
   vim.cmd([[hi EndOfBuffer ctermbg=none ctermfg=none guifg=none guibg=none ]])
+  vim.cmd([[hi CursorLine guibg=#2f4f4f]])
+  vim.cmd([[hi CursorColumn guibg=#2f4f4f]])
+
 end
 return M
