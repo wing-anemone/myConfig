@@ -6,7 +6,7 @@ M.config = function()
   local wilder = require('wilder')
   wilder.setup({
     modes = { ':' },
-    -- next_key = '<c-j>', previous_key = '<C-k>'
+    next_key = '<c-j>', previous_key = '<C-k>'
   })
   -- Disable Python remote plugin
   wilder.set_option('use_python_remote_plugin', 0)

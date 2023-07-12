@@ -9,7 +9,7 @@ M.config = function()
     'coc-sh',
     'coc-sumneko-lua',
     'coc-translator',
-    'coc-symbol-line',
+    'coc-symbol-line', -- need for coc_symbol_line()
   }
   local keyset = vim.keymap.set
   -- coc plugins configs:
@@ -37,6 +37,14 @@ M.config = function()
       end
     end,
   })
+
+  function _G.symbol_line()
+    local curwin = vim.g.statusline_winid or 0
+    local curbuf = vim.api.nvim_win_get_buf(curwin)
+    local ok, line = pcall(vim.api.nvim_buf_get_var, curbuf, 'coc_symbol_line')
+    return ok and line or ''
+  end
+  keyset('n', '<space>ll', '<cmd>lua vim.b.coc_symbol_line<cr>', { silent = true })
 
   -- Some servers have issues with backup files, see #649
   vim.opt.backup = false
