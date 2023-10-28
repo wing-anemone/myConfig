@@ -1,19 +1,43 @@
 {
-  "git.addedSign.hlGroup": "GitGutterAdd",
-  "git.changedSign.hlGroup": "GitGutterChange",
-  "git.removedSign.hlGroup": "GitGutterDelete",
-  "git.topRemovedSign.hlGroup": "GitGutterDelete",
-  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-  "git.addGBlameToVirtualText": false,
-  "git.virtualTextPrefix": "👋 ",
-  "smartf.jumpOnTrigger": false,
-  "smartf.wordJump": false,
+  "symbol-line.separator": " > ",
+  "symbol-line.maxItems": 4,
+  "symbol-line.showArrays": false,
+  "symbol-line.showVariables": false,
+  "symbol-line.showKeys": false,
+  "symbol-line.showNull": false,
+  "symbol-line.showFiles": true,
+  "symbol-line.showModules": false,
+  "symbol-line.showPackages": false,
+  "symbol-line.showClasses": false,
+  "symbol-line.showProperties": false,
+  "symbol-line.showFields": false,
+  "symbol-line.showMethods": false,
+  "symbol-line.showEnums": false,
+  "symbol-line.showEvents": false,
+  "symbol-line.showStrings": false,
+  "symbol-line.showObjects": false,
+  "symbol-line.showEnumMembers": false,
+  "symbol-line.showNumbers": false,
+  "symbol-line.showStructs": false,
+  "symbol-line.showConstants": false,
+  "symbol-line.showConstructors": false,
+  "symbol-line.showTypeParameters": false,
+  "symbol-line.showOperators": false,
+  "symbol-line.showInterfaces": false,
+  "symbol-line.showBooleans": false,
+  "symbol-line.showFunctions": true,
+  "outline.keepWindow": true,
+  "Lua.diagnostics.globals": ["vim"],
+  "translator.engines": [
+    "youdao",
+    "haici"
+  ],
   "languageserver": {
     "ccls": {
       "command": "ccls",
       "filetypes": [
-        "c",
-        "cpp"
+        "cpp",
+        "c"
       ],
       "rootPatterns": [
         "compile_commands.json",
@@ -32,21 +56,11 @@
         },
         "clang": {
           "extraArgs": [
+            "-std=c++17",
             "-Wall"
           ]
         }
       }
     }
-  },
-  "translator.engines": [
-    "youdao",
-    "haici"
-  ],
-  "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
-  },
-  "diagnostic-languageserver.formatFiletypes": {
-    "sh": "shfmt"
-  },
-  "Lua.diagnostics.globals": ["vim"]
+  }
 }

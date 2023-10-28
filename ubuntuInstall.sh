@@ -7,7 +7,8 @@ read first
 [[ -z $first ]] && first="N"
 cd
 apt update
-apt install zsh subversion libclang-12-dev ripgrep fd-find clang-format
+apt install zsh subversion ripgrep clang-format
+# apt install libclang-12-dev
 
 Config=$HOME/.config
 
@@ -15,7 +16,7 @@ Config=$HOME/.config
 [[ -d $Config/nvim ]] && rm $Config/nvim
 ln -s $HOME/myConfig/nvim $Config/nvim
 ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
-ln -sf $HOME/myConfig/nvim/vim/vimrc $HOME/.vimrc
+ln -sf $HOME/myConfig/vimrc $HOME/.vimrc
 
 # 第一次运行脚本
 if [[ $first == "y" || $first == "yes" ]]; then

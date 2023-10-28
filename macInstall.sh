@@ -46,7 +46,7 @@ parse_opts() {
 
 InsMacBasic() {
   brew install zsh wget neovim subversion alacritty \
-    zellij ripgrep fd-find clang-format
+    zellij ripgrep clang-format
 }
 LinkTerminal() {
   if [[ ! -d $Alacritty ]]; then 
@@ -70,7 +70,7 @@ LinkSetting() {
   LinkZellij
   # -s 软链，-i交互模式询问覆盖
   ln -si $PWD/zshrc $HOME/.zshrc
-  ln -si $PWD/nvim/vim/vimrc $HOME/.vimrc
+  ln -si $PWD/vimrc $HOME/.vimrc
   ln -sFi $PWD/nvim $Config
 }
 Install() {
