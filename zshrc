@@ -88,3 +88,5 @@ if [[ $Sys != "mac" ]] {
   alias setclash_debug="$HOME/clash/clash -d $HOME/clash"
   alias unclash='pkill -9 clash'
 }
+alias rgf='rg --files -uu | rg'
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

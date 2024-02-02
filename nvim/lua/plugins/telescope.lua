@@ -1,6 +1,6 @@
 local M = {
   'nvim-telescope/telescope.nvim',--万能无敌各种搜索
-  tag = '0.1.2', -- or branch = '0.1.x',
+  tag = '0.1.3', -- or branch = '0.1.x',
   dependencies = { 'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep','fannheyward/telescope-coc.nvim' }
 }
 M.config = function()
@@ -11,7 +11,7 @@ M.config = function()
   keyset("n", "<leader>G", "<cmd>Telescope grep_string<cr>", opts)
   keyset("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
   -- keyset("n", "<leader>h", "<cmd>Telescope help_tags<cr>", opts)
-  -- keyset("n", "<leader>m", "<cmd>Telescope keymaps<cr>", opts)
+  keyset("n", "<leader>r", "<cmd>Telescope quickfix<cr>", opts)
   keyset("n", "<leader><leader>","<cmd>Telescope<cr>", opts)
 
   keyset('n','gd',"<cmd>Telescope coc definitions<cr>",opts)
@@ -20,10 +20,22 @@ M.config = function()
   keyset('n','gr',"<cmd>Telescope coc references_used<cr>",opts)
 
   local actions = require('telescope.actions')
+  local change_dir = function(prompt_bufnr)
+    local selection = require("telescope.actions.state").get_selected_entry()
+    local dir = vim.fn.fnamemodify(selection.path, ":p:h")
+    require("telescope.actions").close(prompt_bufnr)
+    -- Depending on what you want put `cd`, `lcd`, `tcd`
+    vim.cmd(string.format("silent lcd %s", dir))
+  end
+
   require('telescope').setup {
     defaults = {
+      path_display = {
+        -- shorten = { len = 1, exclude = { 1, -1 } },
+        truncate = 5
+      },
       file_ignore_patterns = {
-        ".git", "_WORKSPACE",
+        ".git"
       },
       layout_strategy = "vertical",
       layout_config = {
@@ -45,9 +57,25 @@ M.config = function()
     pickers = {
       find_files = {
         hidden = true,
-        -- ubuntu上调用的其实得是fdfind命令
-        -- find_command = { "fd", "--type", "f", "--color", "never", "-E", ".git" },
+        find_command = { "rg", "--files",
+        --"-uu",
+        --"--hidden",
+        --"-g", "!**/.git/*",
+          "-g", "!*.{o,d}"
+        },
+        mappings = {
+          n = {
+            ["cd"] = change_dir
+          }
+        }
       },
+      oldfiles = {
+        mappings = {
+          n = {
+            ["cd"] = change_dir
+          }
+        }
+      }
     }
   }
 end

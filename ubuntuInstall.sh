@@ -7,14 +7,13 @@ read first
 [[ -z $first ]] && first="N"
 cd
 apt update
-apt install zsh subversion ripgrep clang-format
-# apt install libclang-12-dev
+apt install zsh subversion libclang-16-dev ripgrep clang-format
 
 Config=$HOME/.config
 
 # 重复链接目录会有出现在后者目录里,所以要先rm
 [[ -d $Config/nvim ]] && rm $Config/nvim
-ln -s $HOME/myConfig/nvim $Config/nvim
+ln -s $HOME/myConfig/nvim-lua $Config/nvim
 ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
 ln -sf $HOME/myConfig/vimrc $HOME/.vimrc
 
