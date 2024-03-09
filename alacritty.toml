@@ -1,0 +1,126 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#72696a"
+blue = "#f38d70"
+cyan = "#85dacc"
+green = "#adda78"
+magenta = "#a8a9eb"
+red = "#fd6883"
+white = "#fff1f3"
+yellow = "#f9cc6c"
+
+[colors.normal]
+black = "#2c2525"
+blue = "#f38d70"
+cyan = "#85dacc"
+green = "#adda78"
+magenta = "#a8a9eb"
+red = "#fd6883"
+white = "#fff1f3"
+yellow = "#f9cc6c"
+
+[colors.primary]
+background = "#2D2A2E"
+foreground = "#fff1f3"
+
+[colors.search.focused_match]
+background = "#996633"
+foreground = "#FF0033"
+
+[colors.search.matches]
+background = "#FFFF66"
+foreground = "#000000"
+
+[cursor.style]
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[font]
+size = 21
+
+[font.bold]
+family = "SauceCodePro Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "SauceCodePro Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "SauceCodePro Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "SauceCodePro Nerd Font"
+style = "Regular"
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(mailto:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\" {-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[1;5C"
+key = "Right"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[1;5D"
+key = "Left"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007F"
+key = "Back"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "None"
+key = "W"
+mods = "Command"
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations = "buttonless"
+dynamic_title = true
+opacity = 0.9
+startup_mode = "SimpleFullscreen"
+title = "DevilMayCry"
+#x = 0
+#y = 0
+
+[window.dimensions]
+columns = 120
+lines = 30
+
+[window.padding]
+x = 0
+y = 0
