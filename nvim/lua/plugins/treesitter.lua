@@ -1,6 +1,6 @@
 local M = {
   'nvim-treesitter/nvim-treesitter', -- 基于语义的高亮
-  run = ':TSUpdate',
+  build = ':TSUpdate',
   dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
 }
 M.init = function()
