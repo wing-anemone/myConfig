@@ -7,13 +7,13 @@ read first
 [[ -z $first ]] && first="N"
 cd
 apt update
-apt install zsh subversion libclang-16-dev ripgrep clang-format
+apt install zsh ccls subversion ripgrep clang-format
 
 Config=$HOME/.config
 
 # 重复链接目录会有出现在后者目录里,所以要先rm
 [[ -d $Config/nvim ]] && rm $Config/nvim
-ln -s $HOME/myConfig/nvim-lua $Config/nvim
+ln -s $HOME/myConfig/nvim $Config/nvim
 ln -sf $HOME/myConfig/zshrc $HOME/.zshrc
 ln -sf $HOME/myConfig/vimrc $HOME/.vimrc
 
@@ -35,9 +35,9 @@ if [[ $first == "y" || $first == "yes" ]]; then
   mv squashfs-root neovim
 
   # ccls for lsp
-  git clone --depth=1 --recursive https://github.com/MaskRay/ccls && cd ccls
-  cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release
-  cmake --build Release && cd
+  # git clone --depth=1 --recursive https://github.com/MaskRay/ccls && cd ccls
+  # cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release
+  # cmake --build Release && cd
 
   # For Ubuntu, install nodejs 20
   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
@@ -47,8 +47,8 @@ fi
 # fc-cache -fv $HOME/.fonts
 # sudo apt install $HOME/nvim-linux64.deb
 
-cd $HOME/ccls/Release
-sudo make install && cd
+#cd $HOME/ccls/Release
+#sudo make install && cd
 
 # python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade pynvim
