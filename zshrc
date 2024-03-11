@@ -36,7 +36,7 @@ zi snippet OMZL::theme-and-appearance.zsh
 # 读取一个文件夹
 # apt install subversion
 zi ice svn 
-zi snippet OMZP::extract
+# zi snippet OMZP::extract
 
 # 不分大小写补全
 compinitCache=${myCache}/zsh/zcompdump
