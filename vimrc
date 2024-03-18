@@ -209,5 +209,5 @@ endif
 if has('macunix')
   vmap <C-k> :py3f /opt/homebrew/Cellar/clang-format/1*/share/clang/clang-format.py<CR>
 else
-  vmap <C-k> :py3f /usr/share/vim/addons/syntax/clang-format-18.py<CR>
+  vmap <C-k> :py3f /usr/share/vim/addons/syntax/clang-format-19.py<CR>
 endif

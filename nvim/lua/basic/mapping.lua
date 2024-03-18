@@ -37,6 +37,6 @@ keyset("n", "k", "gk")
 if vim.fn.has('macunix') == 1 then
   keyset('v', '<c-k>', ':py3f /opt/homebrew/Cellar/clang-format/1*/share/clang/clang-format.py<CR>', opt)
 else
-  keyset('v', '<c-k>', ':py3f /usr/share/vim/addons/syntax/clang-format-18.py<CR>', opt)
+  keyset('v', '<c-k>', ':py3f /usr/share/vim/addons/syntax/clang-format-19.py<CR>', opt)
 end
 
